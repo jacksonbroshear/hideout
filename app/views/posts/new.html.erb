@@ -1,0 +1,13 @@
+<h2>New post topic about <%=@forum.title%></h2>
+
+<% form_for(@post) do |f| %>
+  <%= f.error_messages %>
+
+	<%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p>
+    <%= small_fancy_button( 'Create', :method => :submit, :class => 'small awesome button') %>
+  </p>
+<% end %>
+
+<%= small_fancy_button('Back to Forum', forums_path, :method => :get, :class => 'small awesome button') %>

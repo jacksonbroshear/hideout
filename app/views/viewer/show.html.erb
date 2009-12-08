@@ -1,0 +1,10 @@
+<%= @page.body %>
+<% unless @subpages.empty? %>
+	<div id='subnab'>
+		<ul>
+			<% for page in @subpages %>
+				<li><%= link_to page.title, view_page_path(page.title) %></li>
+			<%end%>
+		</ul>
+	</div>
+<%end%>

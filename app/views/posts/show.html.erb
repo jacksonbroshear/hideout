@@ -1,0 +1,14 @@
+<table>
+	<tr>
+  	<td><h3><%=h @post.subject %><h3></td>
+		<% if current_user == 'admin'%>
+		<td><%= link_to 'Edit', edit_post_path(@post) %></td>
+		<td><%= link_to 'Back', posts_path %></td>
+		<%end%>
+	</tr>
+	<tr>
+		<td colspan=4><div class='prepend-1'><%= render :partial => 'replies/reply', :collection => @post.replies %></div></td>
+	</tr>
+		<td><div class='prepend-1'><%= render :partial => 'replies/form'%></div></td>
+</table>
+

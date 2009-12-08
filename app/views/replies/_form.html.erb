@@ -1,0 +1,15 @@
+
+
+<% form_for(Reply.new) do |f| %>
+  <%= f.error_messages %>
+<%= f.hidden_field :post_id, :value => @post.id %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<p>
+
+  <%= f.text_area(:body, :size => 100) %>
+</p>
+
+  <p>
+    <%= small_fancy_button('Submit', :method => :submit, :class => 'small fancy button') %>
+  </p>
+<% end %>

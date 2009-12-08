@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<title>Title</title>
+		
+		<!-- Import fancy-type stylesheet plugin -->  
+		<%= stylesheet_link_tag "blueprint/plugins/fancy-type/screen", :media => "screen, projection"%>
+		
+		<!-- Import blueprint stylesheet -->
+		<%= stylesheet_link_tag "blueprint/screen", :media => "screen, projection"%>
+		<%= stylesheet_link_tag "blueprint/print", :media => "print"%>
+		<!--[if lt IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, 		  projection"><![endif]-->
+		<!-- Import my stylesheet -->
+		<%= stylesheet_link_tag "hideout" %>
+		<!-- Import awesome buttons -->
+		<%= stylesheet_link_tag "blueprint/plugins/awesome-buttons"%>
+	</head>
+    <body>
+      <div class="container">
+			<div class='span-18 last, box'>
+				<%= link_to image_tag('houseicon200px.jpg'), root_path%>
+			</div>
+			<div class="span-6, box" id="login">
+				<ul><center>
+			   	<% if logged_in? %>
+					<li style = "color:white">Logged in as </li>
+						<%= fancy_button(current_user.name, current_user, :method => :get, :class => "awesome button") %>
+			   	<%= fancy_button('Log Out', logout_path) %>
+			   	<% else %>
+			   	<%= fancy_button('Log In', login_path) %>
+					<li style ="color:white"> Or </li>
+					<%= fancy_button('Sign Up', signup_path) %>
+			   	<% end %>
+					<%if current_user != nil && current_user.login == 'admin' %>
+						<%= fancy_button('Admin Page', pages_path, :method => :get, :class => 'awesome button') %>
+					<%end%>
+					
+				</center></ul>
+			</div>
+		</div>
+		<div class="container">		
+		
+		<!-- Links to Forum, Calendar, Home, Archive/Gallery -->
+		<div id='navbar'>
+			<ul>
+					<li><%= fancy_button('Directory', users_path, :method => :get, :class => 'awesome button') %></li>
+					<li><%= fancy_button('Forum', forums_path, :method => :get, :class => 'awesome button') %></li>
+					<% @tabs.each do |page| -%>
+					<li><%= fancy_button(page.title, view_page_path(page.title))%></li>
+					<%end -%>
+			</ul>
+		</a>
+		</div>		
+		<hr />
+		
+		<!-- App -->
+		<div class="span-17 colborder" id="content">
+			<span class="alt">
+				<center>
+					<%= flash[:notice]%>
+				</center>
+			</span>
+			<%= yield %>
+		</div>
+		
+		<!-- Recent activity will be listed here on the sidebar -->
+		<div class="span-6 last" id="sidebar">
+			<center><h3>Recent Activity</h3></center>
+			<center>(This feature not active yet.)</center>
+		</div>
+	</body>	
+	
+		<!-- Footer -->
+		<div id="footer", class="span-24">
+			<center>Hideout 2.0</center>
+		</div>
+		</div>
+  	
+</html>

@@ -1,0 +1,19 @@
+<h1>New forum topic</h1>
+
+<% form_for(@forum) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= small_fancy_button( 'Create', :method => :submit, :class => 'small awesome button') %>
+  </p>
+<% end %>
+
+<%= small_fancy_button('Back to Forum', forums_path, :method => :get, :class => 'small awesome button') %>

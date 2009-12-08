@@ -1,0 +1,19 @@
+<table>
+	<tr>
+  	<td><h2><%=h @forum.title %></h2><h3><%= @forum.subject%></h3></td>	
+		<% if current_user.login == 'admin' %>
+		<td><%= link_to 'Edit', edit_forum_path(@forum) %></td>
+		<td><%= link_to 'Back', forums_path %></td>
+		<%end%>
+	</tr>
+	<tr>
+		<td><div class='prepend-1'><h5>Post Topics-</h5></div></td>
+	</tr>
+		<td colspan=4><div class='prepend-1'><%= render :partial => 'posts/post', :collection => @forum.posts %></div></td>
+	<tr>
+		<%if @forum.title != nil%>
+		<td><div class='prepend-1'><%= small_fancy_button('Make a post topic about '+@forum.title, :controller => 'posts', :action => 'new', :id => @forum.id )%></div></td>
+		<%end%>
+	</tr>
+ </div></td>
+</table>

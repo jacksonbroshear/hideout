@@ -1,0 +1,16 @@
+#navbar ul li { 
+    display: inline-block;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+#login ul li {
+	display: inline;
+}
+
+#subnav {
+	width: 200px;
+	float: left;
+	border-right: 1px solid black;
+	margin-right: 20px;
+}

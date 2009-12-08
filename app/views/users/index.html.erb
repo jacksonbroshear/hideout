@@ -1,0 +1,16 @@
+<h1>Listing Users</h1>
+
+<table>
+
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= fancy_button(user.login, user, :class => 'awesome button', :method => :get) %> <span class='alt'><%=h user.name %></span></td>
+	</tr>
+				<% if current_user.login == 'admin' %>
+    <td><%= fancy_button('Edit', edit_user_path(user), :method => :get, :class => "awesome button") %></td>
+    <td><%= fancy_button('Destroy', user, :confirm => "Are you sure you want to delete poor old #{user.login}?", :method => :delete, :class => "awesome button") %></td>
+			<% end %>
+  </tr>
+<% end %>
+</table>
