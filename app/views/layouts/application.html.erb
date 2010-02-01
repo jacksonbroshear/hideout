@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<title>Title</title>
-		
+		<%= stylesheet_link_tag "scaffold" %>
 		<!-- Import fancy-type stylesheet plugin -->  
 		<%= stylesheet_link_tag "blueprint/plugins/fancy-type/screen", :media => "screen, projection"%>
 		
@@ -48,7 +48,11 @@
 					<li><%= fancy_button('Directory', users_path, :method => :get, :class => 'awesome button') %></li>
 					<li><%= fancy_button('Forum', forums_path, :method => :get, :class => 'awesome button') %></li>
 					<% @tabs.each do |page| -%>
+						<% if page.redirect? %>
+							<li><%= fancy_button(page.title, :action => page.action_name, :controller => page.controller_name, :name => page.name) %></li>
+						<% else %>
 					<li><%= fancy_button(page.title, view_page_path(page.title))%></li>
+						<%end%>
 					<%end -%>
 			</ul>
 		</a>

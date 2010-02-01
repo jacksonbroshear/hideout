@@ -28,31 +28,31 @@
   <%= @user.aniversary.to_formatted_s(:short) %>
 <br />
 <%end%>
-<%if @user.custom_1_name != nil%>
+<%if !@user.custom_1_name.blank? %>
 <b><%=@user.custom_1_name%>:</b>
 <%end%>
-<%if @user.custom_1_field != nil%>
+<%if !@user.custom_1_field.blank?%>
 <%=@user.custom_1_field%>
 <%end%>
 <br />
-<%if @user.custom_2_name != nil%>
+<%if !@user.custom_2_name.blank? %>
 <b><%=@user.custom_2_name%>:</b>
 <%end%>
-<%if @user.custom_2_field != nil%>
+<%if !@user.custom_2_field.blank?%>
 <%=@user.custom_2_field%>
 <%end%>
 <br />
-<%if @user.custom_3_name != nil%>
+<%if !@user.custom_3_name.blank?%>
 <b><%=@user.custom_3_name%>:</b>
 <%end%>
-<%if @user.custom_3_field != nil%>
+<%if !@user.custom_3_field.blank?%>
 <%=@user.custom_3_field%>
 <%end%>
 <br />
-<%if @user.custom_4_name != nil%>
+<%if !@user.custom_4_name.blank?%>
 <b><%=@user.custom_4_name%>:</b>
 <%end%>
-<%if @user.custom_4_field != nil%>
+<%if !@user.custom_4_field.blank?%>
 <%=@user.custom_4_field%>
 <%end%>
 <br />

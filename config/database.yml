@@ -18,6 +18,4 @@ test:
 production:
   adapter: mysql
   database: hideout_production
-  username: jacksonb
   password: favfav
-  host: mysql.hideout2.com

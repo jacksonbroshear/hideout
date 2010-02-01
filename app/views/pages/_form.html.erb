@@ -7,6 +7,18 @@
   <%= f.text_area :body %>
 </p>
 <p>
+  <%= f.label :redirect? %><br />
+  <%= f.check_box :redirect %>
+</p>
+<p>
+	<%= f.label :action %><br />
+  <%= f.text_area :action_name %>
+</p>
+<p>
+	<%= f.label :controller %><br />
+  <%= f.text_area :controller_name %>
+</p>
+<p>
 	<%= f.collection_select :parent_id, Page.find(:all), :id, :title, :include_blank => true %>
 </p>
 

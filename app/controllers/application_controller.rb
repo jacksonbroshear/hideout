@@ -13,5 +13,10 @@ class ApplicationController < ActionController::Base
     def get_pages_for_tabs
       @tabs = Page.find_main
     end
+    
+    def get_page_metadata
+      @page = Page.find_by_name(params[:name])
+      @pagetitle = @page.title
+    end
   end
       

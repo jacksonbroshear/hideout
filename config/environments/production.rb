@@ -9,6 +9,17 @@ config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
+# use ActionMailer::Base.smtp_settings for Rails 2.0
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+ :address  => "mail.hideout2.com",
+ :port  => 25, 
+ :domain  => 'mail.hideout2.com',
+ :user_name  => "plaxis@hideout2.com",
+ :password  => "favfav",
+ :authentication  => :login
+   } 
+
 # See everything in the log (default is :info)
 config.log_level = :debug
 

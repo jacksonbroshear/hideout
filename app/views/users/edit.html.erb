@@ -36,6 +36,17 @@
     <%= f.text_field :address %>
   </p>
 	<p>
+		<%= f.label :country %>
+		<%= f.country_select(:country, ["United States", "China", "Spain"]) %>
+  </p>
+	<p>
+		<%= f.label :state %>
+		<%= f.select(:state, state_options_for_select(selected = nil)) %>
+  </p>
+	<p>
+		<%= f.label :zip_code %>
+		<%= f.text_field :zip_code %>
+	<p>
 		<%= f.label :birthday %>
 		<%= f.date_select('birthday', :discard_year => true, :include_blank => true)%>
   </p>
@@ -83,3 +94,5 @@
 <% end %>
 <%= fancy_button('Show', @user, :method => :get, :class => 'awesome button') %>
 <%= fancy_button('Back', users_path, :method => :get, :class => 'awesome button') %>
+
+

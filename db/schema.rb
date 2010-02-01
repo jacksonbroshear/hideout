@@ -9,11 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091123231127) do
+ActiveRecord::Schema.define(:version => 20100129211312) do
 
   create_table "forums", :force => true do |t|
     t.string   "title"
     t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "subject"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +35,9 @@ ActiveRecord::Schema.define(:version => 20091123231127) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "navlabel"
+    t.boolean  "redirect"
+    t.string   "action_name"
+    t.string   "controller_name"
   end
 
   create_table "posts", :force => true do |t|
@@ -70,6 +82,10 @@ ActiveRecord::Schema.define(:version => 20091123231127) do
     t.string   "custom_4_field"
     t.date     "birthday"
     t.date     "aniversary"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "zip_code"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
